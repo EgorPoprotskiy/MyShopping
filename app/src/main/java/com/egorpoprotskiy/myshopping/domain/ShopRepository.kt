@@ -1,13 +1,15 @@
 package com.egorpoprotskiy.myshopping.domain
 
+import androidx.lifecycle.LiveData
+
 interface ShopRepository {
-    fun addShopItem(shopList: ShopList)
+    fun addShopItem(shopItem: ShopItem)
 
-    fun deleteShopItem(shopList: ShopList)
+    fun deleteShopItem(shopItem: ShopItem)
 
-    fun editShopItem(shopList: ShopList)
+    fun editShopItem(shopItem: ShopItem)
 
-    fun getShopItem(shopListId: Int): ShopList
+    fun getShopItem(shopItemId: Int): ShopItem
 
-    fun getShopList(): List<ShopList>
+    fun getShopList(): LiveData<List<ShopItem>>
 }

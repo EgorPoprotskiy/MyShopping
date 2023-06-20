@@ -1,10 +1,10 @@
 package com.egorpoprotskiy.myshopping.domain
 
-data class ShopList(
+data class ShopItem(
     val name: String,
     val count: Int,
     val price: Int,
-    val active: Boolean,
+    val value: Boolean,
     var id: Int = ID_NOTFOUND
 ) {
     companion object {

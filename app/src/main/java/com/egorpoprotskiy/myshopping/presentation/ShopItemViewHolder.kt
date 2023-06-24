@@ -10,4 +10,5 @@ class ShopItemViewHolder(var view: View): RecyclerView.ViewHolder(view) {
     val tvName = view.findViewById<TextView>(R.id.tv_name)
     val tvNameCount = view.findViewById<TextView>(R.id.tv_nameCount)
     val tvPriceCount = view.findViewById<TextView>(R.id.tv_priceCount)
+    val tvPrice = view.findViewById<TextView>(R.id.tv_price)
 }

@@ -30,9 +30,10 @@ class ShopListAdapter: ListAdapter<ShopItem, ShopItemViewHolder>(ShopItemDiffCal
         holder.view.setOnClickListener {
             onShopItemClickListener?.invoke(shopItem)
         }
-        holder.tvName.text = shopItem.name
-        holder.tvNameCount.text = shopItem.nameCount.toString()
-        holder.tvPriceCount.text = shopItem.priceCount.toString()
+        holder.tvName.text = "${shopItem.name}:"
+        holder.tvNameCount.text = "${shopItem.nameCount.toString()} шт"
+        holder.tvPriceCount.text = "${shopItem.priceCount.toString()} Р"
+        holder.tvPrice.text = "Цена за шт.:"
     }
 
     override fun getItemViewType(position: Int): Int {

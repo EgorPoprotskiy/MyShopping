@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">My shopping</string>
     <string name="add_new_element">add new element</string>
-    <string name="name">Name:</string>
-    <string name="count">Count:</string>
-    <string name="price">Price:</string>
+    <string name="name">Наименование:</string>
+    <string name="count">Количество:</string>
+    <string name="price">Цена:</string>
     <string name="save">save</string>
     <string name="error_input_name">Error input name</string>
     <string name="error_input_nameCount">Error input count</string>

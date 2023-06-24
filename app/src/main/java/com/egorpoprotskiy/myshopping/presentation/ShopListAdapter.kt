@@ -45,9 +45,9 @@ class ShopListAdapter: ListAdapter<ShopItem, ShopItemViewHolder>(ShopItemDiffCal
     }
 
     companion object {
-        const val VIEW_TYPE_ACTIVE = 0
-        const val VIEW_TYPE_INACTIVE = 1
+        const val VIEW_TYPE_ACTIVE = 100
+        const val VIEW_TYPE_INACTIVE = 101
 
-        const val MAX_SIZE_POOL = 15
+        const val MAX_SIZE_POOL = 30
     }
 }

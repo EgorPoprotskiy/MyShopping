@@ -8,8 +8,9 @@ import java.lang.RuntimeException
 import kotlin.random.Random
 
 object ShopListRepositoryImpl: ShopRepository {
-    private val shopItemAll = sortedSetOf<ShopItem>({ o1, o2 -> o1.id.compareTo(o2.id) })
     private val shopListAllLD = MutableLiveData<List<ShopItem>>()
+    private val shopItemAll = sortedSetOf<ShopItem>({ o1, o2 -> o1.id.compareTo(o2.id) })
+
     private var autoIncrementId = 0
     init {
         for (i in 1 until 10) {

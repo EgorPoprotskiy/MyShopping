@@ -65,7 +65,7 @@ class ShopItemViewModel: ViewModel() {
         if (fieldsValid) {
             _shopItem.value?.let {
                 val item = it.copy(name = name, nameCount = nameCount, priceCount = priceCount)
-                addShopItemUseCase.addShopItem(item)
+                editShopItemUseCase.editShopItem(item)
                 finishWork()
             }
         }

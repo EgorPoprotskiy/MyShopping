@@ -13,14 +13,14 @@ object ShopListRepositoryImpl: ShopRepository {
 
     private var autoIncrementId = 0
     init {
-        for (i in 1 until 10) {
+        for (i in 0 until 10) {
             val item = ShopItem("name $i", i, i, Random.nextBoolean())
             addShopItem(item)
         }
     }
     override fun addShopItem(shopItem: ShopItem) {
         if (shopItem.id == ShopItem.ID_NOTFOUND) {
-            shopItem.id == autoIncrementId++
+            shopItem.id = autoIncrementId++
         }
         shopItemAll.add(shopItem)
         updateShopList()

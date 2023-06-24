@@ -83,7 +83,9 @@ class ShopItemActivity : AppCompatActivity() {
         }
     }
     private fun launchAddMode() {
-        viewModel.addShopItem(etName.text?.toString(), etNameCount.text?.toString(), etPriceCount.text?.toString())
+        buttonSave.setOnClickListener {
+            viewModel.addShopItem(etName.text?.toString(), etNameCount.text?.toString(), etPriceCount.text?.toString())
+        }
     }
 
     private fun addTextChangeListener() {

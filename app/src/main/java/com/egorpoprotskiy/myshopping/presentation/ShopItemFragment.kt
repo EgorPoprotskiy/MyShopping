@@ -83,7 +83,7 @@ class ShopItemFragment(
         if (screenMode != MODE_EDIT && screenMode != MODE_ADD) {
             throw RuntimeException("Param screen mode is absent")
         }
-        if (screenMode != MODE_EDIT && shopItemId == ShopItem.ID_NOTFOUND) {
+        if (screenMode == MODE_EDIT && shopItemId == ShopItem.ID_NOTFOUND) {
             throw RuntimeException("Param shop item id is absent")
         }
     }

@@ -46,7 +46,6 @@ class ShopItemViewModel: ViewModel() {
         }
     }
 
-
     private val _shopItem = MutableLiveData<ShopItem>()
     val shopItem: LiveData<ShopItem>
         get() = _shopItem
@@ -89,7 +88,7 @@ class ShopItemViewModel: ViewModel() {
         var result = true
         if (name.isBlank()) {
             _errorInputName.value = true
-            result = true
+            result = false
         }
         if (nameCount <= 0) {
             _errorInputNameCount.value = true

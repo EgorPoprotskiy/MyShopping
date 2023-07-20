@@ -91,7 +91,7 @@ class ShopItemFragment(
         screenMode = mode
         if (screenMode == MODE_EDIT) {
             if (!args.containsKey(EXTRA_SHOP_ITEM_ID)) {
-                throw RuntimeException("Param shop item id is absent")
+                throw RuntimeException("Param shop item id is absent!")
             }
             shopItemId = args.getInt(EXTRA_SHOP_ITEM_ID, ShopItem.ID_NOTFOUND)
         }

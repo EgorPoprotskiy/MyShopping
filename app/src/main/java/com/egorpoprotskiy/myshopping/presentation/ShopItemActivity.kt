@@ -33,7 +33,9 @@ class ShopItemActivity : AppCompatActivity() {
 //        viewModel = ViewModelProvider(this)[ShopItemViewModel::class.java]
 //        initViews()
 //        addTextChangeListener()
-        launchRightMode()
+        if (savedInstanceState == null) {
+            launchRightMode()
+        }
 //        observeViewModel()
     }
 
@@ -70,7 +72,7 @@ class ShopItemActivity : AppCompatActivity() {
             MODE_ADD -> ShopItemFragment.newInstanceAddItem()
             else -> throw RuntimeException("Unknow screen mode $screenMode")
         }
-        supportFragmentManager.beginTransaction().add(R.id.shop_item_container, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.shop_item_container, fragment).commit()
     }
 
 //    private fun launchEditMode() {

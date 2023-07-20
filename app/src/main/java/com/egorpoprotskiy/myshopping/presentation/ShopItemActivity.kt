@@ -33,7 +33,9 @@ class ShopItemActivity : AppCompatActivity() {
 //        viewModel = ViewModelProvider(this)[ShopItemViewModel::class.java]
 //        initViews()
 //        addTextChangeListener()
-        launchRightMode()
+        if (savedInstanceState == null) {
+            launchRightMode()
+        }
 //        observeViewModel()
     }
 
@@ -49,7 +51,7 @@ class ShopItemActivity : AppCompatActivity() {
 
     private fun parseIntent() {
         if (!intent.hasExtra(EXTRA_SCREEN_MODE)) {
-            throw RuntimeException("param screen mode is absent")
+            throw RuntimeException("param screen mode is absent!")
         }
         val mode = intent.getStringExtra(EXTRA_SCREEN_MODE)
         if (mode != MODE_EDIT && mode != MODE_ADD) {
@@ -70,7 +72,7 @@ class ShopItemActivity : AppCompatActivity() {
             MODE_ADD -> ShopItemFragment.newInstanceAddItem()
             else -> throw RuntimeException("Unknow screen mode $screenMode")
         }
-        supportFragmentManager.beginTransaction().add(R.id.shop_item_container, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.shop_item_container, fragment).commit()
     }
 
 //    private fun launchEditMode() {

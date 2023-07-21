@@ -1,72 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/top"
-    android:layout_marginStart="@dimen/start"
-    android:layout_marginEnd="@dimen/end"
-    android:layout_marginBottom="@dimen/bottom"
-    app:cardCornerRadius="@dimen/radius"
-    app:cardElevation="@dimen/elevation_active"
-    app:cardUseCompatPadding="true">
+<layout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_theme_light_inversePrimary"
-        android:orientation="horizontal"
-        android:padding="@dimen/padding">
+        android:layout_marginStart="@dimen/start"
+        android:layout_marginTop="@dimen/top"
+        android:layout_marginEnd="@dimen/end"
+        android:layout_marginBottom="@dimen/bottom"
+        app:cardCornerRadius="@dimen/radius"
+        app:cardElevation="@dimen/elevation_active"
+        app:cardUseCompatPadding="true">
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/md_theme_light_onPrimary"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Наименование:" />
+            android:background="@color/md_theme_light_inversePrimary"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding">
 
-        <TextView
-            android:id="@+id/tv_nameCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/md_theme_light_onPrimary"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="1 шт" />
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/md_theme_light_onPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Наименование:" />
 
-        <TextView
-            android:id="@+id/tv_price"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/md_theme_light_onPrimary"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:paddingTop="@dimen/radius"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"
-            tools:text="Цена:"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/tv_nameCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_theme_light_onPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1 шт" />
 
-        <TextView
-            android:id="@+id/tv_priceCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/md_theme_light_onPrimary"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:paddingTop="@dimen/radius"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_nameCount"
-            tools:text="1 Р" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="@dimen/radius"
+                android:textColor="@color/md_theme_light_onPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                tools:ignore="MissingConstraints"
+                tools:text="Цена:" />
+
+            <TextView
+                android:id="@+id/tv_priceCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/radius"
+                android:textColor="@color/md_theme_light_onPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_nameCount"
+                tools:text="1 Р" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

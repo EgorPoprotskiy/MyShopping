@@ -14,7 +14,7 @@ import com.egorpoprotskiy.myshopping.R
 import com.egorpoprotskiy.myshopping.domain.ShopItem
 import com.google.android.material.textfield.TextInputLayout
 
-class ShopItemActivity : AppCompatActivity() {
+class ShopItemActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedListener {
 //    private lateinit var viewModel: ShopItemViewModel
 //    private lateinit var tilName: TextInputLayout
 //    private lateinit var etName: TextView
@@ -73,6 +73,10 @@ class ShopItemActivity : AppCompatActivity() {
             else -> throw RuntimeException("Unknow screen mode $screenMode")
         }
         supportFragmentManager.beginTransaction().replace(R.id.shop_item_container, fragment).commit()
+    }
+
+    override fun onEditingFinished() {
+        finish()
     }
 
 //    private fun launchEditMode() {

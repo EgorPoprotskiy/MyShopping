@@ -16,10 +16,9 @@ import com.egorpoprotskiy.myshopping.R
 import com.egorpoprotskiy.myshopping.domain.ShopItem
 import com.google.android.material.textfield.TextInputLayout
 
-class ShopItemFragment(
-    private var screenMode: String = MODE_UNKNOW,
+class ShopItemFragment: Fragment() {
+    private var screenMode: String = MODE_UNKNOW
     private var shopItemId: Int = ShopItem.ID_NOTFOUND
-): Fragment() {
     private lateinit var viewModel: ShopItemViewModel
 
     private lateinit var tilName: TextInputLayout
@@ -30,7 +29,7 @@ class ShopItemFragment(
     private lateinit var etPriceCount: TextView
     private lateinit var buttonSave: Button
 
-
+    private lateinit var onEditingFinishedListener: OnEditingFinishedListener
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -176,7 +175,8 @@ class ShopItemFragment(
             tilPriceCount.error = message
         }
         viewModel.shouldCloseScreen.observe(viewLifecycleOwner){
-            activity?.onBackPressed()
+//            activity?.onBackPressed()
+            onEditingFinishedListener.onEditingFinished()
         }
     }
 
@@ -216,6 +216,18 @@ class ShopItemFragment(
             intent.putExtra(EXTRA_SCREEN_MODE, MODE_EDIT)
             intent.putExtra(EXTRA_SHOP_ITEM_ID, shopItemId)
             return intent
+        }
+    }
+
+    interface OnEditingFinishedListener {
+        fun onEditingFinished()
+    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnEditingFinishedListener) {
+            onEditingFinishedListener = context
+        } else {
+            throw RuntimeException("activity must implement OnEditinfFinishedListener")
         }
     }
 }

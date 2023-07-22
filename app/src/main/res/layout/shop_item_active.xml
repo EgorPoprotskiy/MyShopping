@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/tv_name"
-                android:text="@{shopItem.name}"
+                android:text="@{shopItem.name + `:`}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -41,7 +41,7 @@
 
             <TextView
                 android:id="@+id/tv_nameCount"
-                android:text="@{String.valueOf(shopItem.nameCount)}"
+                android:text="@{String.valueOf(shopItem.nameCount) + ` шт.`}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/md_theme_light_onPrimary"
@@ -67,7 +67,7 @@
 
             <TextView
                 android:id="@+id/tv_priceCount"
-                android:text="@{String.valueOf(shopItem.priceCount)}"
+                android:text="@{String.valueOf(shopItem.priceCount) + ` P`}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/radius"

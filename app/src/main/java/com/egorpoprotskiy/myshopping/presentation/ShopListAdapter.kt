@@ -43,16 +43,20 @@ class ShopListAdapter : ListAdapter<ShopItem, ShopItemViewHolder>(ShopItemDiffCa
         }
         when (binding) {
             is ShopItemInactiveBinding -> {
-                binding.tvName.text = "${shopItem.name}:"
-                binding.tvNameCount.text = "${shopItem.nameCount.toString()} шт"
-                binding.tvPriceCount.text = "${shopItem.priceCount.toString()} Р"
-                binding.tvPrice.text = "Цена за шт.:"
+//                6.3
+                binding.shopItem = shopItem
+//                binding.tvName.text = "${shopItem.name}:"
+//                binding.tvNameCount.text = "${shopItem.nameCount.toString()} шт"
+//                binding.tvPriceCount.text = "${shopItem.priceCount.toString()} Р"
+//                binding.tvPrice.text = "Цена за шт.:"
             }
             is ShopItemActiveBinding -> {
-                binding.tvName.text = "${shopItem.name}:"
-                binding.tvNameCount.text = "${shopItem.nameCount.toString()} шт"
-                binding.tvPriceCount.text = "${shopItem.priceCount.toString()} Р"
-                binding.tvPrice.text = "Цена за шт.:"
+//                6.3
+                binding.shopItem = shopItem
+//                binding.tvName.text = "${shopItem.name}:"
+//                binding.tvNameCount.text = "${shopItem.nameCount.toString()} шт"
+//                binding.tvPriceCount.text = "${shopItem.priceCount.toString()} Р"
+//                binding.tvPrice.text = "Цена за шт.:"
             }
         }
     }

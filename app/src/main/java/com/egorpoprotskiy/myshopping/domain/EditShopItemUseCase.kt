@@ -1,7 +1,8 @@
 package com.egorpoprotskiy.myshopping.domain
 
 class EditShopItemUseCase(private val shopRepository: ShopRepository) {
-    fun editShopItem(shopItem: ShopItem) {
+    // 10
+    suspend fun editShopItem(shopItem: ShopItem) {
         shopRepository.editShopItem(shopItem)
     }
 }

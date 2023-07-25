@@ -24,7 +24,9 @@ class ShopListRepositoryImpl(application: Application): ShopRepository {
 //            addShopItem(item)
 //        }
 //    }
-    override fun addShopItem(shopItem: ShopItem) {
+
+    // 10
+    override suspend fun addShopItem(shopItem: ShopItem) {
 //        if (shopItem.id == ShopItem.ID_NOTFOUND) {
 //            shopItem.id = autoIncrementId++
 //        }
@@ -33,20 +35,23 @@ class ShopListRepositoryImpl(application: Application): ShopRepository {
         shopItemDao.addShopList(mapper.mapEntityToDbModel(shopItem))
     }
 
-    override fun deleteShopItem(shopItem: ShopItem) {
+    // 10
+    override suspend fun deleteShopItem(shopItem: ShopItem) {
 //        shopItemAll.remove(shopItem)
 //        updateShopList()
         shopItemDao.deleteShopList(shopItem.id)
     }
 
-    override fun editShopItem(shopItem: ShopItem) {
+    // 10
+    override suspend fun editShopItem(shopItem: ShopItem) {
 //        val olItemId = getShopItem(shopItem.id)
 //        shopItemAll.remove(olItemId)
 //        addShopItem(shopItem)
         shopItemDao.addShopList(mapper.mapEntityToDbModel(shopItem))
     }
 
-    override fun getShopItem(shopListId: Int): ShopItem {
+    // 10
+    override suspend fun getShopItem(shopListId: Int): ShopItem {
 //        return shopItemAll.find {
 //            it.id == shopListId
 //        } ?: throw RuntimeException("Element with ID $shopListId not found")

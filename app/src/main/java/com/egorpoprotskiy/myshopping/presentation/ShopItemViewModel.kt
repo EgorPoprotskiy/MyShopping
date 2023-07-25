@@ -5,11 +5,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.egorpoprotskiy.myshopping.data.ShopListRepositoryImpl
 import com.egorpoprotskiy.myshopping.domain.AddShopItemUseCase
 import com.egorpoprotskiy.myshopping.domain.EditShopItemUseCase
 import com.egorpoprotskiy.myshopping.domain.GetShopItemUseCase
 import com.egorpoprotskiy.myshopping.domain.ShopItem
+import kotlinx.coroutines.launch
 import java.lang.Exception
 // 9
 class ShopItemViewModel(application: Application): AndroidViewModel(application) {
@@ -24,9 +26,12 @@ class ShopItemViewModel(application: Application): AndroidViewModel(application)
         val priceCount = parsePriceCount(inputPriceCount)
         val fieldsValid = validateInput(name, nameCount, priceCount)
         if (fieldsValid) {
-            val shopItem = ShopItem(name, nameCount, priceCount, true)
-            addShopItemUseCase.addShopItem(shopItem)
-            finishWork()
+            // 11
+            viewModelScope.launch {
+                val shopItem = ShopItem(name, nameCount, priceCount, true)
+                addShopItemUseCase.addShopItem(shopItem)
+                finishWork()
+            }
         }
     }
     private fun parseName(inputName: String?): String {
@@ -51,8 +56,11 @@ class ShopItemViewModel(application: Application): AndroidViewModel(application)
     val shopItem: LiveData<ShopItem>
         get() = _shopItem
     fun getShopItem(shopItemId: Int) {
-        val item = getShopItemUseCase.getShopItem(shopItemId)
-        _shopItem.value = item
+        // 11
+        viewModelScope.launch {
+            val item = getShopItemUseCase.getShopItem(shopItemId)
+            _shopItem.value = item
+        }
     }
     private val _shouldCloseScreen = MutableLiveData<Unit>()
     val shouldCloseScreen: LiveData<Unit>
@@ -63,10 +71,13 @@ class ShopItemViewModel(application: Application): AndroidViewModel(application)
         val priceCount = parsePriceCount(inputPriceCount)
         val fieldsValid = validateInput(name, nameCount, priceCount)
         if (fieldsValid) {
-            _shopItem.value?.let {
-                val item = it.copy(name = name, nameCount = nameCount, priceCount = priceCount)
-                editShopItemUseCase.editShopItem(item)
-                finishWork()
+            // 11
+            viewModelScope.launch {
+                _shopItem.value?.let {
+                    val item = it.copy(name = name, nameCount = nameCount, priceCount = priceCount)
+                    editShopItemUseCase.editShopItem(item)
+                    finishWork()
+                }
             }
         }
     }
@@ -112,6 +123,8 @@ class ShopItemViewModel(application: Application): AndroidViewModel(application)
     }
 
     private fun finishWork() {
-        _shouldCloseScreen.value = Unit
+        // 10
+//        _shouldCloseScreen.value = Unit
+        _shouldCloseScreen.postValue(Unit)
     }
 }

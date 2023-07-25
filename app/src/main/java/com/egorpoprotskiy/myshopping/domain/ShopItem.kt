@@ -8,6 +8,7 @@ data class ShopItem(
     var id: Int = ID_NOTFOUND
 ) {
     companion object {
-        const val ID_NOTFOUND = -1
+        // 9
+        const val ID_NOTFOUND = 0
     }
 }
